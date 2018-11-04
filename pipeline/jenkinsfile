@@ -7,10 +7,10 @@ node {
    }
    dir ('./app'){
       stage('Unit test') {
-        def myTestContainer = docker.image('node:10.7.0')
+        def myTestContainer = docker.image('node:9.11.1')
         myTestContainer.pull()
         myTestContainer.inside {
-          sh 'npm install'
+          sh 'npm install --dev'
           sh 'npm install sqlite3'
           sh 'npm install bcrypt'
           sh 'npm test'
