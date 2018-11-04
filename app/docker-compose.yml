@@ -1,0 +1,6 @@
+version: '3.3'
+services:
+  owaspweb:
+    image: 137.116.133.205:8443/admin/owaspweb:${commit_id}
+    ports:
+      - "4001:3000"
