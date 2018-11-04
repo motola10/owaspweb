@@ -1,0 +1,34 @@
+pipeline { 
+    agent any 
+    stages {
+        stage('Source Code Preparation') { 
+            steps { 
+                sh "git rev-parse --short HEAD > .git/commit-id"
+                script {
+                    commit_id = readFile(".git/commit-id").trim()
+                }
+            }
+        }
+        stage('Unit test'){
+            options { skipDefaultCheckout() }
+            agent {docker 'node:9.11.1'}  
+            steps {
+                sh "cd app/ && npm install --dev"
+                sh "cd app/ && npm test"        
+            }
+        }    
+        stage('Push Docker Image') {
+            steps {
+                sh "cd app/ && docker build -f Dockerfile -t 137.116.133.205:8443/admin/owaspweb:${commit_id} ."
+                withDockerRegistry([credentialsId: 'DTRcredential', url: 'https://137.116.133.205:8443/v2/' ]) {
+                    sh "docker push 137.116.133.205:8443/admin/owaspweb:${commit_id}"
+                }    
+            }
+        }    
+        stage('Deploy to Docker Cluster') {
+            steps {
+                sh "commit_id=${commit_id} docker stack deploy --compose-file docker-compose.yml owaspweb"
+            }    
+        }        
+    }
+}
