@@ -12,6 +12,7 @@ node {
         myTestContainer.inside {
           sh 'npm install'
           sh 'npm install sqlite3'
+          sh 'npm install bcrypt'
           sh 'npm test'
         }
       }
