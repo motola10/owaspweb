@@ -1,8 +1,5 @@
 pipeline { 
     agent any 
-    options {
-        checkoutToSubdirectory('app')
-    }
     stages {
         stage('Source Code Preparation') { 
             steps { 
