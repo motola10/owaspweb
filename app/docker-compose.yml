@@ -5,8 +5,8 @@ services:
   sigsci-agent:
     image: 137.116.133.205:8443/admin/sigsci-agent:latest
     environment:
-        SIGSCI_ACCESSKEYID: 'be8b5287-142c-416d-9773-ed0f2bc87bca'
-        SIGSCI_SECRETACCESSKEY: 'XHxw00Tpr-bpjomfMtXqB-N7RWhq9-HWEKmArtx6V2Y'
+        SIGSCI_ACCESSKEYID: '4075876c-cd8f-4629-ba71-3ae951336b90'
+        SIGSCI_SECRETACCESSKEY: 'ymSLiXUg9f1Eiys3Ij5SbBtC13Na2_kGq6jq01iqqOQ'
         SIGSCI_REVERSE_PROXY: 'true'
         SIGSCI_REVERSE_PROXY_LISTENER: '0.0.0.0:8081'
         SIGSCI_REVERSE_PROXY_UPSTREAM: 'owaspweb:3000'        
