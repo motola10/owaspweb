@@ -10,7 +10,7 @@ node {
         def myTestContainer = docker.image('node:9.11.1')
         myTestContainer.pull()
         myTestContainer.inside {
-          sh 'npm install --dev'
+          sh 'npm install --only=dev'
           sh 'npm test'
         }
       }
@@ -20,12 +20,12 @@ node {
       //       sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=demodevops -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=JS:version0.1 -Dsonar.sources=. -Dsonar.inclusions=*.js,public/*.html,test/*.js"
       //     }
       //   }
-    //   stage('Quality Check') {
-    //       def sonarqubeScannerHome = tool name: 'sonarqube-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    //       withCredentials([string(credentialsId: 'sonar', variable: 'sonarLogin')]) {
-    //         sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=demodevops_local -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=demodevops_local -Dsonar.sources=."
-    //     }
-    //   }
+      stage('Quality Check') {
+          def sonarqubeScannerHome = tool name: 'sonarqube-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+          withCredentials([string(credentialsId: 'sonar', variable: 'sonarLogin')]) {
+            sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=owaspweb -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=owaspweb -Dsonar.sources=."
+        }
+      }
       //  stage('Quality Check') {
       //     def scannerHome = tool 'sonarqube-scanner';
       //     withSonarQubeEnv('sonarqube') {
