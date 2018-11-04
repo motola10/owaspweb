@@ -11,8 +11,6 @@ node {
         myTestContainer.pull()
         myTestContainer.inside {
           sh 'npm install --dev'
-          sh 'npm install sqlite3'
-          sh 'npm install bcrypt'
           sh 'npm test'
         }
       }
