@@ -13,17 +13,16 @@ pipeline {
                 }
             }
         }
-        dir ('./app'){
-            stage('Unit test'){
-                steps {
-                    def myTestContainer = docker.image('node:9.11.1')
-                    myTestContainer.pull()
-                    myTestContainer.inside {
-                      sh 'npm install --dev'
-                      sh 'npm test'
-                    }
-                }
+        stage('Unit test'){
+            steps {
+                  def myTestContainer = docker.image('node:9.11.1')
+                  myTestContainer.pull()
+                  myTestContainer.inside {
+                      sh 'cd app/ && npm install --dev'
+                      sh 'cd app/ && npm test'  
+                  }  
             }
+        }    
             stage('Push Docker Image') {
                 steps {
                     docker.withRegistry('https://137.116.133.205:8443/v2/', 'DTRcredential') {
@@ -36,6 +35,5 @@ pipeline {
                     sh "commit_id=${commit_id} docker stack deploy --compose-file docker-compose.yml owaspweb"
                 }
             }
-        }
     }
 }
