@@ -10,7 +10,7 @@ pipeline {
             }
         }
         stage('Unit test'){
-            options { skipDefaultCheckout() }
+            //options { skipDefaultCheckout() }
             agent {docker 'node:10'}  
             steps {
                 sh "cd app/ && npm install --only=dev"
