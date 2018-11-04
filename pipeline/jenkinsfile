@@ -13,7 +13,7 @@ pipeline {
             options { skipDefaultCheckout() }
             agent {docker 'node:9.11.1'}  
             steps {
-                sh "cd app/ && npm install --only=dev"
+                sh "cd app/ && npm install --dev"
                 sh "cd app/ && npm test"        
             }
         }    
