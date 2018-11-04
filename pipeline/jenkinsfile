@@ -19,9 +19,9 @@ pipeline {
         }    
             stage('Push Docker Image') {
                 steps {
-                    sh "cd app/ && docker build -f Dockerfile -t admin/owaspweb:${commit_id} ."
+                    sh "cd app/ && docker build -f Dockerfile -t 137.116.133.205:8443/admin/owaspweb:${commit_id} ."
                     withDockerRegistry([credentialsId: 'DTRcredential', url: 'https://137.116.133.205:8443/v2/' ]) {
-                      sh "docker push admin/owaspweb:${commit_id}"
+                      sh "docker push 137.116.133.205:8443/admin/owaspweb:${commit_id}"
                     }
                 }
             }
