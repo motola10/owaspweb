@@ -9,24 +9,23 @@ pipeline {
                 checkout scm
                 sh "git rev-parse --short HEAD > .git/commit-id"
                 script {
-                    env.commit_id = readFile('.git/commit-id').trim()
+                    commit_id = readFile(".git/commit-id").trim()
                 }
             }
         }
         stage('Unit test'){
+            agent {docker 'node:9.11.1'}
             steps {
-                  def myTestContainer = docker.image('node:9.11.1')
-                  myTestContainer.pull()
-                  myTestContainer.inside {
-                      sh 'cd app/ && npm install --dev'
-                      sh 'cd app/ && npm test'  
-                  }  
+                sh "cd app/ && npm install --dev"
+                sh "cd app/ && npm test"        
             }
         }    
             stage('Push Docker Image') {
                 steps {
-                    docker.withRegistry('https://137.116.133.205:8443/v2/', 'DTRcredential') {
-                      def app = docker.build("admin/owaspweb:${commit_id}", '.').push()
+                    sh "cd app/ && docker build -f Dockerfile -t admin/owaspweb:${commit_id}"
+                    withDockerRegistry([ credentialsId: "DTRcredential", url: "https://137.116.133.205:8443/v2/" ]) {
+                      sh "docker push brightbox/terraform:latest"
+                      sh "docker push brightbox/cli:latest"
                     }
                 }
             }
