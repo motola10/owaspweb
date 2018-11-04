@@ -11,6 +11,7 @@ node {
         myTestContainer.pull()
         myTestContainer.inside {
           sh 'npm install'
+          sh 'npm install sqlite3'
           sh 'npm test'
         }
       }
