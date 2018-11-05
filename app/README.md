@@ -266,6 +266,9 @@ project was mentioned?
 Add it to our ever-growing list of [REFERENCES.md](REFERENCES.md) by
 forking and opening a Pull Request!
 
+Solution (https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/appendix/solutions.html)
+
+
 ## Merchandise
 
 * On [Spreadshirt.com](http://shop.spreadshirt.com/juiceshop) and

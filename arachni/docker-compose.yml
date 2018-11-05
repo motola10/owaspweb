@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  arachni:
+    image: arachni/arachni:latest
+    # environment:  
+    #     SERVER_ROOT_PASSWORD: 'DockerArachniPWD' 
+    #     ARACHNI_PARAMS: '--authentication-username arachni --authentication-password Pass123 --only-positives'  
+    ports:
+        - 222:22
+        - 7331:7331
+        - 9292:9292
