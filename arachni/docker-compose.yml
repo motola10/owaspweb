@@ -9,3 +9,6 @@ services:
         - 222:22
         - 7331:7331
         - 9292:9292
+    deploy:
+      placement:
+        constraints: [node.labels.hostrole==attacker]

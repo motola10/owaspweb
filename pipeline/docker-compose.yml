@@ -1,0 +1,16 @@
+  version: '3.3'
+  services:
+    jenkins:
+      image: 137.116.133.205:8443/admin/jenkins:lts.1.0
+      environment:
+        # - JAVA_OPTS="-Duser.timezone=Asia/Jakarta"
+        - TZ=Asia/Jakarta
+      ports:
+        - "8080:8080"
+        - "50000:50000"
+      volumes:
+        - /var/jenkins_home:/var/jenkins_home
+        - /var/run/docker.sock:/var/run/docker.sock
+      deploy:
+        placement:
+          constraints: [node.role == manager]
