@@ -7,6 +7,9 @@ This covers setup for Arachni DAST security tools
 - guidence (https://github.com/Arachni/arachni/wiki/REST-API)
 - guidence web ui (https://github.com/Arachni/arachni-ui-web/wiki)
 
+## Jenkins plugin
+* Arachni scanner (https://wiki.jenkins.io/display/JENKINS/Arachni+Scanner+plugin)
+
 ## Default Account
 * Administrator account
 ```
