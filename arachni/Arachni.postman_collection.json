@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "e56eb5ce-bc76-4898-b991-6fce04b49496",
+		"name": "Arachni",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post scan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"http://137.116.133.235:4001\",\n    \"checks\": [\"*\"]\n}"
+				},
+				"url": {
+					"raw": "http://137.116.133.235:7331/scans",
+					"protocol": "http",
+					"host": [
+						"137",
+						"116",
+						"133",
+						"235"
+					],
+					"port": "7331",
+					"path": [
+						"scans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET scan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://137.116.133.235:7331/scans",
+					"protocol": "http",
+					"host": [
+						"137",
+						"116",
+						"133",
+						"235"
+					],
+					"port": "7331",
+					"path": [
+						"scans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove scan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://137.116.133.235:7331/scans/515d3ef6a27dabc9da223424952c7b16",
+					"protocol": "http",
+					"host": [
+						"137",
+						"116",
+						"133",
+						"235"
+					],
+					"port": "7331",
+					"path": [
+						"scans",
+						"515d3ef6a27dabc9da223424952c7b16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get html report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://137.116.133.235:7331/scans/e1ae7049e0c2cce681ea849a0cf6cd29/report.html.zip",
+					"protocol": "http",
+					"host": [
+						"137",
+						"116",
+						"133",
+						"235"
+					],
+					"port": "7331",
+					"path": [
+						"scans",
+						"e1ae7049e0c2cce681ea849a0cf6cd29",
+						"report.html.zip"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "password",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "arachni",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "590c2dac-d6ef-4746-a90f-07d336228e7c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5ec5ed84-69d1-4596-844b-04d4db0b5446",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
