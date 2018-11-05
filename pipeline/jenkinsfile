@@ -38,11 +38,7 @@ node {
       //   sh "commit_id=${commit_id} docker stack deploy --compose-file docker-compose.yml owaspweb"                                    
       // }
       stage('DAST testing') {
-        sh "curl -X POST \
-            http://137.116.133.235:7331/scans \
-            -H 'Authorization: Basic YXJhY2huaTpwYXNzd29yZA==' \
-            -H 'Content-Type: application/json' \
-            -d '{'url': 'http://137.116.133.235:4001','checks': ['*']}'"
+        sh "curl -X POST http://137.116.133.235:7331/scans -H 'Authorization: Basic YXJhY2huaTpwYXNzd29yZA==' -H 'Content-Type: application/json' -d '{"url": "http://137.116.133.235:4001","checks": ["*"]}'"
       }  
     } 
 }    
