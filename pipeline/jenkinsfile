@@ -15,18 +15,18 @@ node {
               sh 'npm install --only=dev'
               sh 'npm test'
             }
-          }
+          },
           // 'Quality Check': {
           //   def sonarqubeScannerHome = tool name: 'sonarqube-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
           //   withCredentials([string(credentialsId: 'sonar', variable: 'sonarLogin')]) {
           //     sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=owaspweb -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=owaspweb -Dsonar.sources=."
           //   }
           // },
-          // stage('Security Check') {
-          //   withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
-          //     sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
-          //   }
-          // }
+          'Security Check': {
+            withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
+              sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
+            }
+          }
         )  
       }
       // stage('Push Docker Image') {            
