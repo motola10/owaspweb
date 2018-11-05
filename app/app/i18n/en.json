@@ -6,7 +6,7 @@
   "TITLE_LOGIN": "Login",
   "MANDATORY_EMAIL": "Please provide an email address.",
   "MANDATORY_PASSWORD": "Please provide a password.",
-  "LABEL_EMAIL": "Email",
+  "LABEL_EMAIL": "Your Email",
   "LABEL_PASSWORD": "Password",
   "BTN_LOGIN": "Log in",
   "BTN_GOOGLE_LOGIN": "Log in with Google",
