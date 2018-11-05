@@ -39,8 +39,7 @@ node {
       // } 
     } 
     stage('DAST testing') {
-        //sh "curl -X POST http://137.116.133.235:7331/scans -H 'Authorization: Basic YXJhY2huaTpwYXNzd29yZA==' -H 'Content-Type: application/json' -d '{"url": "http://137.116.133.235:4001","checks": ["*"]}'"
-        arachniScanner checks: '*', scope: [pageLimit: 2], url: 'http://137.116.133.235:4001', userConfig: [filename: 'arachni/myConfiguration.json'], format: 'json'
-        //arachniScanner checks: '*', scope: [pageLimit: 3], url: 'http://137.116.133.235:4001'
+        def result = arachniScanner checks: '*', scope: [pageLimit: 2], url: 'http://137.116.133.235:4001', userConfig: [filename: 'arachni/myConfiguration.json'], format: 'json'
+        sh "echo ${result}"
     } 
 }    
