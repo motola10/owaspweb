@@ -1,0 +1,5 @@
+{
+    "http" : {
+        "request_timeout" : "10_000"
+    }
+}
