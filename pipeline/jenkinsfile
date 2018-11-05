@@ -44,7 +44,7 @@ node {
             -H 'Cache-Control: no-cache' \
             -H 'Content-Type: application/json' \
             -H 'Postman-Token: c5191e71-69e8-4ba9-a2dc-4208f666fe09' \
-            -d '{'url': 'http://137.116.133.235:4001','checks': ['*'']}'"
+            -d '{'url': 'http://137.116.133.235:4001','checks': ['*']}'"
       }  
     } 
 }    
