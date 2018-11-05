@@ -1,6 +1,6 @@
 {
     "http" : {
-        "request_timeout" : "1000_000"
+        "request_timeout" : "60000_000"
     },
     "authorized_by" : "Tomy"
 }
