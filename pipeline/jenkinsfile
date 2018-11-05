@@ -32,13 +32,18 @@ node {
       //     sh "${scannerHome}/bin/sonar-scanner"
       //   }
       //  }
-      stage('Push Docker Image') {            
-        docker.withRegistry('https://137.116.133.205:8443/v2/', 'DTRcredential') {
-          def app = docker.build("admin/owaspweb:${commit_id}", '.').push()
-        }                                     
+      stage('Security Check') {
+          withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
+            sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
+        }
       }
-      stage('Deploy to Docker Cluster') {            
-        sh "commit_id=${commit_id} docker stack deploy --compose-file docker-compose.yml owaspweb"                                    
-      }
+      // stage('Push Docker Image') {            
+      //   docker.withRegistry('https://137.116.133.205:8443/v2/', 'DTRcredential') {
+      //     def app = docker.build("admin/owaspweb:${commit_id}", '.').push()
+      //   }                                     
+      // }
+      // stage('Deploy to Docker Cluster') {            
+      //   sh "commit_id=${commit_id} docker stack deploy --compose-file docker-compose.yml owaspweb"                                    
+      // }
    } 
 }    
