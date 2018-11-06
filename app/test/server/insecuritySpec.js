@@ -16,7 +16,7 @@ describe('insecurity', () => {
 
   describe('userEmailFrom', () => {
     it('returns content of "x-user-email" header if present', () => {
-      expect(insecurity.serEmailFrom({ headers: { 'x-user-email': 'test@bla.blubb' } })).to.equal('test@bla.blubb')
+      expect(insecurity.userEmailFrom({ headers: { 'x-user-email': 'test@bla.blubb' } })).to.equal('test@bla.blubb')
     })
 
     it('returns undefined if header "x-user-email" is not present', () => {
