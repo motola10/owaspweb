@@ -6,9 +6,9 @@
     "auditLog": "./.audit.json",
     "files": [
         {
-            "date": 1541312225270,
-            "name": "./access.log.2018-11-04",
-            "hash": "c4541e6ac195437644972ac2fa2ecfe0"
+            "date": 1543442654840,
+            "name": "./access.log.2018-11-29",
+            "hash": "1b44af7bbd5087768a3eb6288ed2abf3"
         }
     ]
 }
