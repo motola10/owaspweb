@@ -12,7 +12,7 @@ node {
             def myTestContainer = docker.image('node:9.11.1')
             myTestContainer.pull()
             myTestContainer.inside {
-              sh 'npm install --only=dev'
+              sh 'npm install'
               sh 'npm test'
             }
           },
