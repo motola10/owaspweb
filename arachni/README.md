@@ -26,5 +26,3 @@ Password: regular_user
 username: arachni
 password: password
 ```
-
-test
