@@ -1,7 +1,7 @@
   version: '3.3'
   services:
     jenkins:
-      image: 137.116.133.205:8443/admin/jenkins:lts.1.0
+      image: 35.240.157.182:9443/admin/jenkins:lts.1.0
       environment:
         # - JAVA_OPTS="-Duser.timezone=Asia/Jakarta"
         - TZ=Asia/Jakarta
