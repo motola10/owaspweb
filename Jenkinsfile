@@ -30,7 +30,7 @@ node {
         )  
       }
       stage('Push Docker Image') {            
-        docker.withRegistry('https://137.116.133.205:8443/v2/', 'DTRcredential') {
+        docker.withRegistry('https://35.240.157.182:9443:/v2/', 'DTRcredential') {
           def app = docker.build("admin/owaspweb:${commit_id}", '.').push()
         }                                     
       }
@@ -39,6 +39,6 @@ node {
       } 
     } 
     stage('DAST testing') {
-        arachniScanner checks: '*', scope: [pageLimit: 3], url: 'http://137.116.133.235:4001', userConfig: [filename: 'arachni/myConfiguration.json'], format: 'json'
+        arachniScanner checks: '*', scope: [pageLimit: 3], url: 'https://35.247.136.39:4001', userConfig: [filename: 'arachni/myConfiguration.json'], format: 'json'
     } 
 }    
