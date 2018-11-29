@@ -3,7 +3,7 @@ services:
   owaspweb:
     image: 35.240.157.182:9443/admin/owaspweb:${commit_id}
   sigsci-agent:
-    image: 35.240.157.182:9443:8443/admin/sigsci-agent:latest
+    image: 35.240.157.182:9443/admin/sigsci-agent:latest
     environment:
         SIGSCI_ACCESSKEYID: '4075876c-cd8f-4629-ba71-3ae951336b90'
         SIGSCI_SECRETACCESSKEY: 'ymSLiXUg9f1Eiys3Ij5SbBtC13Na2_kGq6jq01iqqOQ'
