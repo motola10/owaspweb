@@ -39,6 +39,6 @@ node {
       } 
     } 
     stage('DAST testing') {
-        arachniScanner checks: '*', scope: [pageLimit: 3], url: 'https://35.247.136.39:4001', userConfig: [filename: 'arachni/myConfiguration.json'], format: 'json'
+        arachniScanner checks: '*', scope: [pageLimit: 3], url: 'http://35.247.136.39:4001', userConfig: [filename: 'arachni/myConfiguration.json'], format: 'json'
     } 
 }    
