@@ -30,7 +30,7 @@ node {
         )  
       }
       stage('Push Docker Image') {            
-        docker.withRegistry('https://35.240.157.182:9443:/v2/', 'DTRcredential') {
+        docker.withRegistry('https://35.240.157.182:9443/v2/', 'DTRcredential') {
           def app = docker.build("admin/owaspweb:${commit_id}", '.').push()
         }                                     
       }
